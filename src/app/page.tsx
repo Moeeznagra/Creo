@@ -39,13 +39,15 @@ export default function Home() {
         if (error) {
           console.error('Sign in error:', error)
           setMessage(`Sign in failed: ${error.message}`)
+          setLoading(false)
           return
         }
         if (data.user) {
           console.log('User signed in successfully:', data.user)
           setMessage('Sign in successful! Redirecting...')
-          // Redirect immediately using router.push
+          // Keep loading state true during redirect
           router.push('/generations')
+          return
         } else {
           setMessage('Sign in failed. No user data returned.')
         }
@@ -57,6 +59,7 @@ export default function Home() {
         if (error) {
           console.error('Sign up error:', error)
           setMessage(`Sign up failed: ${error.message}`)
+          setLoading(false)
           return
         }
         if (data.user) {

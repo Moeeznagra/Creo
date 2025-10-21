@@ -97,29 +97,6 @@ export default function Home() {
             <div className="absolute bottom-1/4 right-1/4 w-48 h-48 rounded-full blur-3xl animate-pulse delay-1000" style={{ backgroundColor: '#EFFDF9', boxShadow: '0 0 60px rgba(239, 253, 249, 0.3)' }}></div>
           </div>
 
-          {/* News Ticker */}
-          <div className="absolute top-8 left-0 right-0 z-20">
-            <div className="text-center mb-4">
-              <p className="text-sm text-gray-600 font-medium mb-4">Trusted by</p>
-              <div className="relative overflow-hidden">
-                <div className="flex justify-center">
-                  <div className="flex space-x-12 items-center">
-                    {/* Google */}
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" className="h-8 w-auto opacity-60 hover:opacity-100 transition-opacity duration-300" style={{ filter: 'brightness(0)' }} />
-                    {/* Netflix */}
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" className="h-8 w-auto opacity-60 hover:opacity-100 transition-opacity duration-300" style={{ filter: 'brightness(0)' }} />
-                    {/* Spotify */}
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify" className="h-8 w-auto opacity-60 hover:opacity-100 transition-opacity duration-300" style={{ filter: 'brightness(0)' }} />
-                    {/* Meta */}
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" alt="Meta" className="h-8 w-auto opacity-60 hover:opacity-100 transition-opacity duration-300" style={{ filter: 'brightness(0)' }} />
-                    {/* Airbnb */}
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_Bélo.svg" alt="Airbnb" className="h-8 w-auto opacity-60 hover:opacity-100 transition-opacity duration-300" style={{ filter: 'brightness(0)' }} />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <div className="flex flex-col justify-center items-center text-gray-900 p-16 w-full h-full relative z-10">
             <div className={`text-center space-y-16 max-w-lg transition-all duration-1000 delay-500 ${pageLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
               {/* Logo */}

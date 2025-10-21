@@ -44,10 +44,8 @@ export default function Home() {
         if (data.user) {
           console.log('User signed in successfully:', data.user)
           setMessage('Sign in successful! Redirecting...')
-          // Use router.push for redirect
-          setTimeout(() => {
-            router.push('/generations')
-          }, 1000)
+          // Redirect immediately using router.push
+          router.push('/generations')
         } else {
           setMessage('Sign in failed. No user data returned.')
         }

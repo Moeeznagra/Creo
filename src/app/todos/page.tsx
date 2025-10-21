@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { supabase } from '@/lib/supabase'
 import { useRouter } from 'next/navigation'
 import { User } from '@supabase/supabase-js'
@@ -21,21 +21,16 @@ export default function TodosPage() {
   const [saving, setSaving] = useState(false)
   const router = useRouter()
 
-  useEffect(() => {
-    checkUser()
-    fetchTodos()
-  }, [])
-
-  const checkUser = async () => {
+  const checkUser = useCallback(async () => {
     const { data: { user } } = await supabase.auth.getUser()
     if (!user) {
       router.push('/')
     } else {
       setUser(user)
     }
-  }
+  }, [router])
 
-  const fetchTodos = async () => {
+  const fetchTodos = useCallback(async () => {
     try {
       const { data: { user } } = await supabase.auth.getUser()
       if (!user) return
@@ -53,7 +48,12 @@ export default function TodosPage() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [])
+
+  useEffect(() => {
+    checkUser()
+    fetchTodos()
+  }, [checkUser, fetchTodos])
 
   const addTodo = async (e: React.FormEvent) => {
     e.preventDefault()

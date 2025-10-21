@@ -65,9 +65,10 @@ export default function Home() {
           setMessage('Check your email for the confirmation link!')
         }
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Auth error:', error)
-      setMessage(`An error occurred: ${error.message || 'Please try again.'}`)
+      const errorMessage = error instanceof Error ? error.message : 'Please try again.'
+      setMessage(`An error occurred: ${errorMessage}`)
     } finally {
       setLoading(false)
     }

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { supabase } from '@/lib/supabase'
 import { useRouter } from 'next/navigation'
 import { User } from '@supabase/supabase-js'
@@ -23,25 +23,16 @@ export default function GenerationsPage() {
   const [pageLoaded, setPageLoaded] = useState(false)
   const router = useRouter()
 
-  useEffect(() => {
-    setPageLoaded(true)
-  }, [])
-
-  useEffect(() => {
-    checkUser()
-    fetchGenerations()
-  }, [])
-
-  const checkUser = async () => {
+  const checkUser = useCallback(async () => {
     const { data: { user } } = await supabase.auth.getUser()
     if (!user) {
       router.push('/')
     } else {
       setUser(user)
     }
-  }
+  }, [router])
 
-  const fetchGenerations = async () => {
+  const fetchGenerations = useCallback(async () => {
     try {
       const { data: { user } } = await supabase.auth.getUser()
       if (!user) return
@@ -59,7 +50,16 @@ export default function GenerationsPage() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [])
+
+  useEffect(() => {
+    setPageLoaded(true)
+  }, [])
+
+  useEffect(() => {
+    checkUser()
+    fetchGenerations()
+  }, [checkUser, fetchGenerations])
 
   const generateImage = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -105,9 +105,10 @@ export default function GenerationsPage() {
       setGenerations([generation[0], ...generations])
       setPrompt('')
       setMessage('Image generated successfully!')
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error generating image:', error)
-      setMessage(`Failed to generate image: ${error.message}`)
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred'
+      setMessage(`Failed to generate image: ${errorMessage}`)
     } finally {
       setGenerating(false)
     }
@@ -319,7 +320,7 @@ export default function GenerationsPage() {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-              {generations.map((generation, index) => (
+              {generations.map((generation) => (
                 <div
                   key={generation.id}
                   className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 border border-gray-200 overflow-hidden group relative"

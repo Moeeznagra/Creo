@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react'
 import { supabase } from '@/lib/supabase'
 import { useRouter } from 'next/navigation'
 import { User } from '@supabase/supabase-js'
+import Image from 'next/image'
 
 interface Generation {
   id: string
@@ -177,9 +178,11 @@ export default function GenerationsPage() {
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-6">
               <div className="w-14 h-14 relative group">
-                <img 
+                <Image 
                   src="/applogonew.png" 
                   alt="Creo Logo" 
+                  width={56}
+                  height={56}
                   className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
                   style={{ filter: 'drop-shadow(0 0 20px rgba(0, 188, 132, 0.3))' }}
                 />
@@ -222,9 +225,11 @@ export default function GenerationsPage() {
           <div className="relative z-10">
             <div className="text-center mb-10">
               <div className="w-20 h-20 mx-auto mb-6 relative group">
-                <img 
+                <Image 
                   src="/applogonew.png" 
                   alt="Creo Logo"
+                  width={80}
+                  height={80}
                   className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
                   style={{ filter: 'drop-shadow(0 0 20px rgba(0, 188, 132, 0.3))' }}
                 />
@@ -330,9 +335,11 @@ export default function GenerationsPage() {
                   <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/30 to-teal-50/30 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   
                   <div className="aspect-square bg-gray-100 relative overflow-hidden rounded-t-3xl">
-                    <img
+                    <Image
                       src={generation.image_url}
                       alt={generation.prompt}
+                      width={400}
+                      height={400}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>

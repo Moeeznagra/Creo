@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '@/lib/supabase'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 
 export default function Home() {
   const [email, setEmail] = useState('')
@@ -111,9 +112,11 @@ export default function Home() {
             <div className={`text-center space-y-16 max-w-lg transition-all duration-1000 delay-500 ${pageLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
               {/* Logo */}
               <div className="w-32 h-32 mx-auto relative group">
-                <img 
+                <Image 
                   src="/applogonew.png" 
                   alt="Creo Logo" 
+                  width={128}
+                  height={128}
                   className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500 drop-shadow-lg"
                   style={{ filter: 'drop-shadow(0 0 20px rgba(0, 188, 132, 0.3))' }}
                 />
@@ -158,9 +161,11 @@ export default function Home() {
             {/* Mobile Logo */}
             <div className="lg:hidden text-center">
               <div className="w-20 h-20 mx-auto mb-6 relative group">
-                <img 
+                <Image 
                   src="/applogonew.png" 
                   alt="Creo Logo" 
+                  width={80}
+                  height={80}
                   className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500 drop-shadow-lg"
                 />
               </div>

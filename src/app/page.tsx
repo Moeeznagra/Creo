@@ -229,7 +229,7 @@ export default function LandingPage() {
                       </label>
                       <div className="bg-gradient-to-r from-gray-50 to-gray-100/50 rounded-2xl p-4 border border-gray-200/50 hover:border-emerald-200 transition-colors duration-300">
                         <p className="text-sm text-gray-700 italic leading-relaxed">
-                          "A minimalist workspace with natural light, wooden desk, and modern laptop"
+                          &quot;A minimalist workspace with natural light, wooden desk, and modern laptop&quot;
                         </p>
                       </div>
                     </div>
@@ -575,7 +575,7 @@ export default function LandingPage() {
                   <div className="space-y-4">
                     <div className="bg-gray-50 rounded-lg p-4">
                       <div className="text-sm text-gray-500 mb-2">Input</div>
-                      <div className="text-gray-800 italic">"A minimalist workspace with natural light, wooden desk, and modern laptop"</div>
+                      <div className="text-gray-800 italic">&quot;A minimalist workspace with natural light, wooden desk, and modern laptop&quot;</div>
                     </div>
                     
                     <div className="flex items-center justify-center py-4">
@@ -678,7 +678,7 @@ export default function LandingPage() {
               onClick={() => router.push('/registration')}
               className="bg-emerald-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-emerald-700 transition-all duration-300 transform hover:scale-105 cursor-pointer"
             >
-              Try It Now - It's Free!
+              Try It Now - It&apos;s Free!
             </button>
           </div>
         </div>
@@ -715,7 +715,7 @@ export default function LandingPage() {
                 ))}
               </div>
               <p className="text-gray-600 italic">
-                "Creo has revolutionized my workflow. I can create concept art and mockups in minutes instead of hours. The quality is incredible!"
+                &quot;Creo has revolutionized my workflow. I can create concept art and mockups in minutes instead of hours. The quality is incredible!&quot;
               </p>
             </div>
 
@@ -737,7 +737,7 @@ export default function LandingPage() {
                 ))}
               </div>
               <p className="text-gray-600 italic">
-                "As a YouTuber, I need eye-catching thumbnails constantly. Creo saves me so much time and money. The results are always professional."
+                &quot;As a YouTuber, I need eye-catching thumbnails constantly. Creo saves me so much time and money. The results are always professional.&quot;
               </p>
             </div>
 
@@ -759,7 +759,7 @@ export default function LandingPage() {
                 ))}
               </div>
               <p className="text-gray-600 italic">
-                "Perfect for creating marketing materials on a budget. The AI understands exactly what I need and delivers every time."
+                &quot;Perfect for creating marketing materials on a budget. The AI understands exactly what I need and delivers every time.&quot;
               </p>
             </div>
           </div>
@@ -997,7 +997,7 @@ export default function LandingPage() {
               </h3>
               <p className="text-gray-600 leading-relaxed">
                 Absolutely! You can cancel your subscription at any time from your account settings. 
-                You'll continue to have access to paid features until the end of your current billing period.
+                You&apos;ll continue to have access to paid features until the end of your current billing period.
               </p>
             </div>
           </div>
